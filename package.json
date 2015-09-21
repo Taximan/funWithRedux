@@ -1,0 +1,22 @@
+{
+  "name": "fun-with-redux",
+  "version": "0.1.0",
+  "description": "example redux app",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack-dev-server --content-base public/"
+  },
+  "author": "Dawid C.",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^5.3.2",
+    "webpack-dev-server": "^1.11.0"
+  },
+  "dependencies": {
+    "immutable": "^3.7.5",
+    "moment": "^2.10.6",
+    "react": "^0.13.3",
+    "react-redux": "^2.1.2",
+    "redux": "^3.0.0"
+  }
+}
