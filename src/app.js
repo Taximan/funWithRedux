@@ -7,7 +7,7 @@ import Posts from './components/Posts';
 import Navbar from './components/Navbar';
 import AddPostForm from './components/AddPostForm';
 
-import { addPost,  toggleAddPostForm } from './redux/actions';
+import { pushPost,  toggleAddPostForm } from './redux/actions';
 
 class App extends Component {
 	constructor(props) {
@@ -16,7 +16,7 @@ class App extends Component {
 	}
 
 	handleAddPostFormSubmit(formData) {
-		this.props.dispatch(addPost(formData));
+		this.props.dispatch(pushPost(formData));
 		this.props.dispatch(toggleAddPostForm());
 	}
 
@@ -26,8 +26,10 @@ class App extends Component {
 
 		if(shouldShowAddPostForm) {
 			content = <AddPostForm onSubmit={this.handleAddPostFormSubmit}/>
+		} else if(posts.isFetching) {
+			content = 'loading...'
 		} else {
-			content = <Posts posts={posts} />
+			content = <Posts posts={posts.items} />
 		}
 
 		return (
